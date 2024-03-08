@@ -1,2 +1,1 @@
 require("alino")
-print("Hello")

@@ -1,0 +1,2 @@
+require("alino")
+print("Hello")

@@ -22,5 +22,7 @@ return require('packer').startup(function(use)
   })
   
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use 'karb94/neoscroll.nvim'
+  use('nvim-treesitter/playground')
+  use('theprimeagen/harpoon')
+  use('karb94/neoscroll.nvim')
 end)

@@ -21,8 +21,16 @@ return require('packer').startup(function(use)
 	  end
   })
   
+  -- syntax highlighting with treesitter
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
+
+  -- starcraft like file(unit group) switching
   use('theprimeagen/harpoon')
+
+  -- smooth scrolling
   use('karb94/neoscroll.nvim')
+
+  -- make neovim smart as vscode regarding autocomplete suggestions
+  use {'neoclide/coc.nvim', branch = 'release'}
 end)

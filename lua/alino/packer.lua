@@ -26,7 +26,12 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/playground')
 
   -- starcraft like file(unit group) switching
-  use('theprimeagen/harpoon')
+  use "nvim-lua/plenary.nvim" 
+  use {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      requires = { {"nvim-lua/plenary.nvim"} }
+  }
 
   -- smooth scrolling
   use('karb94/neoscroll.nvim')

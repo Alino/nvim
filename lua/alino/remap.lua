@@ -23,4 +23,45 @@ vim.keymap.set("i", "<C-e>", "<Esc>$a", {noremap = true})
 -- Use H for insert instead of I
 -- vim.api.nvim_set_keymap('n', 'h', 'i', {noremap = true})
 
+local opts = { noremap = true, expr = true, silent = true }
+-- because or opts.expr we gotta return something
+vim.keymap.set("i", "<Tab>", function()
+  if vim.fn["coc#pum#visible"]() == 1 then
+    return vim.fn["coc#pum#next"](1)
+  --elseif vim.fn["coc#expandableOrJumpable"]() then
+    --return "<Plug>(coc-snippets-expand-jump)"
+  else
+    return "<C-i>"
+  end
+end, opts)
 
+vim.keymap.set("i", "<S-Tab>", function()
+  if vim.fn["coc#pum#visible"]() == 1 then
+    return vim.fn["coc#pum#prev"](1)
+  elseif vim.fn["coc#jumpable"]() then
+    return vim.fn["coc#snippet#prev"]() --> this turns into <Ignore> when the keymap runs
+  elseif vim.fn.indent(vim.fn.line(".")) == vim.fn.col(".") - 1 then
+    return "<C-d>"
+  else
+    return "<C-w>"
+  end
+end, opts)
+
+vim.keymap.set("i", "<CR>", function()
+  if vim.fn["coc#pum#visible"]() == 1 then
+    vim.fn["coc#pum#close"]("confirm")
+  else
+    vim.api.nvim_feedkeys(vim.keycode("<C-m>"), "n", false)
+    vim.fn["coc#on_enter"]()
+  end
+end, { noremap = true, silent = true })
+
+-- This might be useful since some snippets sometimes add text before the
+-- cursor and that might influence completion
+vim.keymap.set("i", "<C-Space>", function()
+  if vim.fn["coc#pum#visible"]() == 1 then
+    vim.fn["coc#pum#close"]()
+  else
+    vim.fn["coc#start"]()
+  end
+end, { noremap = true, silent = true })

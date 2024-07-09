@@ -27,6 +27,8 @@ https://github.com/neoclide/coc-tsserver
 
 ------
 
-karabiner/* goes to ~/.config/karabiner
-iterm2/* goes to ~/.config/iterm2
-
+move karabiner and iterm2 configs
+```
+cp karabiner/* ~/.config/karabiner
+cp iterm2/* ~/.config/iterm2
+```

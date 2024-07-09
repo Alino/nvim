@@ -38,4 +38,7 @@ return require('packer').startup(function(use)
 
   -- make neovim smart as vscode regarding autocomplete suggestions
   use {'neoclide/coc.nvim', branch = 'release'}
+
+  -- LSP servers
+  use "neovim/nvim-lspconfig"
 end)

@@ -23,3 +23,10 @@ inspired by https://www.youtube.com/watch?v=w7i4amO_zaE
 typescript support with coc
 ```:CocInstall coc-tsserver```
 https://github.com/neoclide/coc-tsserver
+
+
+------
+
+karabiner/* goes to ~/.config/karabiner
+iterm2/* goes to ~/.config/iterm2
+

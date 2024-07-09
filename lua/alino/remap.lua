@@ -47,14 +47,14 @@ vim.keymap.set("i", "<S-Tab>", function()
   end
 end, opts)
 
-vim.keymap.set("i", "<CR>", function()
-  if vim.fn["coc#pum#visible"]() == 1 then
-    vim.fn["coc#pum#close"]("confirm")
-  else
-    vim.api.nvim_feedkeys(vim.keycode("<C-m>"), "n", false)
-    vim.fn["coc#on_enter"]()
-  end
-end, { noremap = true, silent = true })
+--vim.keymap.set("i", "<CR>", function()
+  --if vim.fn["coc#pum#visible"]() == 1 then
+   -- vim.fn["coc#pum#close"]("confirm")
+--  else
+  --  vim.api.nvim_feedkeys(vim.keycode("<C-m>"), "n", false)
+    --vim.fn["coc#on_enter"]()
+  --end
+--end, { noremap = true, silent = true })
 
 -- This might be useful since some snippets sometimes add text before the
 -- cursor and that might influence completion

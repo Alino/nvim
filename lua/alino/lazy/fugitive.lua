@@ -20,19 +20,14 @@ return {
                     vim.cmd.Git('push')
                 end, opts)
 
-                -- rebase always
-                vim.keymap.set("n", "<leader>P", function()
-                    vim.cmd.Git({'pull',  '--rebase'})
-                end, opts)
-
-                -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-                -- needed if i did not set the branch up correctly
-                vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
             end,
         })
 
 
-        vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
-        vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
+--        vim.keymap.set("n", "gf", "<cmd>diffget //2<CR>")
+--        vim.keymap.set("n", "gj", "<cmd>diffget //3<CR>")
+        vim.keymap.set("n", "gu", "<cmd>diffget<CR>")  -- Get changes from the other file
+        vim.keymap.set("n", "gh", "<cmd>diffput<CR>")  -- Put changes to the other file
+        vim.keymap.set("n", "gv", function() vim.cmd("Gvdiff") end)
     end
 }
